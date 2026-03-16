@@ -1,0 +1,92 @@
+{
+  "_comment": "NowcastIQ Agent — Task Generation Rules. Edit this file to change agent behaviour without touching code. Agent reads this on every run. See RULES_GUIDE.md for full documentation.",
+  "_version": "1.0.0",
+  "_lastModified": "2026-03-16",
+
+  "trials": {
+    "callForDemo": {
+      "enabled": true,
+      "description": "Call T1/T2/T3 trialists within 72h of trial start",
+      "triggerWithinDays": 3,
+      "owner": "diana",
+      "priority": "URGENT",
+      "note": "owner must be 'naseef', 'diana', or 'ed'"
+    },
+    "midPointCheck": {
+      "enabled": true,
+      "description": "Check in with T1/T2/T3 trialists at day 7",
+      "triggerOnDayMin": 6,
+      "triggerOnDayMax": 8,
+      "owner": "naseef",
+      "priority": "HIGH"
+    },
+    "feedbackAndPricing": {
+      "enabled": true,
+      "description": "Call all trialists 72h before trial end for feedback and pricing",
+      "triggerDaysBeforeEnd": 3,
+      "owner": "diana",
+      "priority": "HIGH",
+      "note": "applies to ALL trials in lists 3.0 and 3.1 regardless of tier"
+    },
+    "finalCheckIn": {
+      "enabled": true,
+      "description": "Final push in last 48h of trial",
+      "triggerDaysBeforeEnd": 2,
+      "owner": "naseef",
+      "priority": "URGENT"
+    },
+    "escalation": {
+      "staleTaskDays": 5,
+      "description": "Escalate open trial tasks with no response after this many days",
+      "considerClosingDays": 10
+    }
+  },
+
+  "deals": {
+    "trackProcurement": {
+      "enabled": true,
+      "owner": "naseef",
+      "priority": "HIGH",
+      "defaultDueDays": 7
+    },
+    "trackExpansion": {
+      "enabled": true,
+      "owner": "naseef",
+      "priority": "MEDIUM",
+      "defaultDueDays": 14
+    },
+    "reengagement": {
+      "enabled": true,
+      "owner": "naseef",
+      "priority": "MEDIUM"
+    },
+    "closingSoon": {
+      "enabled": true,
+      "description": "Alert when deal closes within this many days",
+      "triggerWithinDays": 7,
+      "owner": "naseef",
+      "priority": "HIGH"
+    }
+  },
+
+  "leads": {
+    "directOutreach": {
+      "enabled": true,
+      "owner": "naseef",
+      "priority": "HIGH"
+    },
+    "newsletter": {
+      "enabled": true,
+      "owner": "naseef",
+      "priority": "HIGH",
+      "note": "Owner is always Naseef for B1. This cannot be changed."
+    }
+  },
+
+  "universal": {
+    "noTeamActivityDays": 14,
+    "description": "Create re-engage task if no team outreach to lead in this many days",
+    "noTeamActivityOwner": "naseef",
+    "noTeamActivityPriority": "MEDIUM"
+  }
+}
