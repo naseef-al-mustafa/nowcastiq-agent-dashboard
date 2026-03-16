@@ -1,0 +1,19 @@
+{
+  "name": "nowcastiq-agent-dashboard",
+  "version": "1.0.0",
+  "description": "NowcastIQ agent with integrated dashboard and chat",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "agent": "node nowcastiq-agent.mjs",
+    "dry-run": "node nowcastiq-agent.mjs --dry-run",
+    "health": "node nowcastiq-agent.mjs --health",
+    "list": "node nowcastiq-agent.mjs --list"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
